@@ -54,7 +54,7 @@ void GameState::load()
 
 	std::unique_ptr<SpriteNode> backgroundSprite(new SpriteNode(mGame, "Desert", "Bg"));
 	mBackground = backgroundSprite.get();
-	mBackground->setPosition(0, 0, 0);
+	mBackground->setPosition(0, 0, 1);
 	mBackground->setScale(15.0, 1.0, 100.0);
 	mBackground->setWorldRotation(90 * XM_PI / 180, 0, 0);
 	mBackground->setVelocity(0, -2);

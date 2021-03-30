@@ -30,6 +30,7 @@ void World::update(const GameTimer& gt)
 
 void World::getInputs(const GameTimer& gt)
 {
+	mCurrentState->getInputs(gt);
 	if (mTitleState->mActive)
 	{
 		if (listenerManager.CheckInput(0x20))
@@ -37,6 +38,7 @@ void World::getInputs(const GameTimer& gt)
 			SetState(mGameState);
 		}
 	}
+	
 }
 
 void World::draw()
@@ -46,7 +48,7 @@ void World::draw()
 
 void World::load()
 {
-	SetState(mTitleState);
+	SetState(mGameState);
 } 
 
 void World::SetState(State* state)
