@@ -4,8 +4,11 @@ const int gNumFrameResources = 3;
 
 Game::Game(HINSTANCE hInstance)
 	: D3DApp(hInstance)
-	, mWorld(this)
 {
+	gameState = new GameState(this);
+	menuState = new MenuState(this);
+	titleState = new TitleState(this);
+	instructionState = new InstructionState(this);
 }
 
 Game::~Game()
@@ -65,7 +68,7 @@ void Game::OnResize()
 void Game::Update(const GameTimer& gt)
 {
 	OnKeyboardInput(gt);
-	mWorld.update(gt);
+	titleState->update(gt);
 	UpdateCamera(gt);
 
 	// Cycle through the circular frame resource array.
@@ -122,7 +125,7 @@ void Game::Draw(const GameTimer& gt)
 	auto passCB = mCurrFrameResource->PassCB->Resource();
 	mCommandList->SetGraphicsRootConstantBufferView(2, passCB->GetGPUVirtualAddress());
 
-	mWorld.draw();
+	titleState->draw();
 	DrawRenderItems(mCommandList.Get(), mOpaqueRitems);
 
 	// Indicate a state transition on the resource usage.
@@ -665,7 +668,7 @@ void Game::BuildMaterials()
 
 void Game::BuildRenderItems()
 {
-	mWorld.load();
+	titleState->load();
 
 	// All the render items are opaque.
 	for (auto& e : mAllRitems)

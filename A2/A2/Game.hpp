@@ -1,4 +1,8 @@
-#include "World.hpp"
+#include "TitleState.h"
+#include "MenuState.h"
+#include "GameState.h"
+#include "InstructionState.h"
+#include "StateList.h"
 
 class Game : public D3DApp
 {
@@ -76,17 +80,13 @@ private:
 
 	PassConstants mMainPassCB;
 
-	//XMFLOAT3 mEyePos = { 0.0f, 0.0f, -10.0f };
-	//XMFLOAT4X4 mView = MathHelper::Identity4x4();
-	//XMFLOAT4X4 mProj = MathHelper::Identity4x4();
-
-	//float mTheta = 1.3f * XM_PI;
-	//float mPhi = 0.4f * XM_PI;
-	//float mRadius = 2.5f;
-
 	POINT mLastMousePos;
 	Camera mCamera;
-	World mWorld;
+	
+	GameState* gameState;
+	TitleState* titleState;
+	MenuState* menuState;
+	InstructionState* instructionState;
 
 public:
 	std::vector<std::unique_ptr<RenderItem>>& getRenderItems() { return mAllRitems; }

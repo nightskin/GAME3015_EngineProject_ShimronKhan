@@ -59,4 +59,5 @@ void GameState::load()
 	mBackground->setWorldRotation(90 * XM_PI / 180, 0, 0);
 	mBackground->setVelocity(0, -2);
 	mSceneGraph->attachChild(std::move(backgroundSprite));
+	mSceneGraph->build();
 }

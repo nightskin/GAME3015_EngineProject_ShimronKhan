@@ -66,9 +66,6 @@
     <ClCompile Include="TitleState.cpp">
       <Filter>Added Files</Filter>
     </ClCompile>
-    <ClCompile Include="World.cpp">
-      <Filter>Altered Files</Filter>
-    </ClCompile>
     <ClCompile Include="SpriteNode.cpp">
       <Filter>Altered Files</Filter>
     </ClCompile>
@@ -139,9 +136,6 @@
     </ClInclude>
     <ClInclude Include="TitleState.h">
       <Filter>Added Files</Filter>
-    </ClInclude>
-    <ClInclude Include="World.hpp">
-      <Filter>Altered Files</Filter>
     </ClInclude>
     <ClInclude Include="Game.hpp">
       <Filter>Altered Files</Filter>

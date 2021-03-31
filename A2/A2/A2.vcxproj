@@ -160,7 +160,6 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="TitleState.cpp" />
-    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Common\Camera.h" />
@@ -186,7 +185,6 @@
     <ClInclude Include="State.h" />
     <ClInclude Include="StateList.h" />
     <ClInclude Include="TitleState.h" />
-    <ClInclude Include="World.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
