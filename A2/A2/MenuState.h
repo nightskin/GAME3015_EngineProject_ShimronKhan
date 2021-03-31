@@ -7,7 +7,7 @@ public:
 	MenuState(Game* window);
 	void update(const GameTimer& gt) override;
 	void getInputs(const GameTimer& gt) override;
-	void draw() override;
+	void draw(const GameTimer& gt) override;
 	void load() override;
 public:
 	SceneNode* mSceneGraph;
@@ -17,4 +17,6 @@ private:
 	SpriteNode* mBg;
 	SpriteNode* mArrow;
 	int option;
+	Listener up;
+	Listener down;
 };

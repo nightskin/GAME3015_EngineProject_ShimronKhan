@@ -6,10 +6,10 @@ Player::Player(Game* game, std::string name) : Entity(game, name)
 	mSprite = "Eagle";
 	mName = "Player";
 	//Create Listeners
-	Listener aKey;
+
 	aKey.bindChar = 'A';
 	aKey.name = "AKey";
-	Listener dKey;
+
 	dKey.bindChar = 'D';
 	dKey.name = "DKey";
 	// Add listeners to listener manager
@@ -21,12 +21,12 @@ void Player::input(const GameTimer& gt)
 {
 	float speed = 2.0f * gt.DeltaTime();
 
-	if (listenerManager.CheckInput('D'))
+	if (listenerManager.CheckListener(dKey))
 	{
 		move(speed, 0, 0);
 	}
 
-	if (listenerManager.CheckInput('A'))
+	if (listenerManager.CheckListener(aKey))
 	{
 		move(-speed, 0, 0);
 	}

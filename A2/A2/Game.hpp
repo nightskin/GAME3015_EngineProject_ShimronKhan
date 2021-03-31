@@ -1,4 +1,9 @@
-#include "StateMachine.h"
+#include "TitleState.h"
+#include "MenuState.h"
+#include "GameState.h"
+#include "InstructionState.h"
+#include "StateList.h"
+#include <stack>
 
 class Game : public D3DApp
 {
@@ -38,6 +43,7 @@ private:
 	void BuildPSOs();
 	void BuildFrameResources();
 	void BuildMaterials();
+	void SetState(State* s);
 	void BuildRenderItems();
 	void DrawRenderItems(ID3D12GraphicsCommandList* cmdList, const std::vector<RenderItem*>& ritems);
 
@@ -79,7 +85,15 @@ private:
 	POINT mLastMousePos;
 	Camera mCamera;
 	
-	StateMachine* stateMachine;
+	std::vector<State*> states;
+	GameState* gameState;
+	TitleState* titleState;
+	MenuState* menuState;
+	InstructionState* instructionState;
+
+
+	ListenerManager listeners;
+	Listener gotToMenu;
 
 public:
 	std::vector<std::unique_ptr<RenderItem>>& getRenderItems() { return mAllRitems; }

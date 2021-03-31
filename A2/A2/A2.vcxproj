@@ -159,7 +159,6 @@
     <ClCompile Include="SpriteNode.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="State.cpp" />
-    <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="TitleState.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -185,7 +184,6 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateList.h" />
-    <ClInclude Include="StateMachine.h" />
     <ClInclude Include="TitleState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

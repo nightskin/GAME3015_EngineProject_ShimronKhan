@@ -1,11 +1,25 @@
 #include "Game.hpp"
+#include <iostream>
 
 const int gNumFrameResources = 3;
 
-Game::Game(HINSTANCE hInstance)
-	: D3DApp(hInstance)
+Game::Game(HINSTANCE hInstance): D3DApp(hInstance)
 {
-	stateMachine = new StateMachine(this);
+	titleState = new TitleState(this);
+	menuState = new MenuState(this);
+	instructionState = new InstructionState(this);
+	gameState = new GameState(this);
+
+	states.push_back(titleState);
+	states.push_back(menuState);
+	states.push_back(instructionState);
+	states.push_back(gameState);
+
+	gotToMenu.name = "menu";
+	gotToMenu.bindInt = 0x20;
+
+	AllocConsole();
+	freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
 }
 
 Game::~Game()
@@ -65,7 +79,11 @@ void Game::OnResize()
 void Game::Update(const GameTimer& gt)
 {
 	OnKeyboardInput(gt);
-	stateMachine->update(gt);
+	for (int i = 0; i < states.size(); i++)
+	{
+		states[i]->update(gt);
+	}
+
 	UpdateCamera(gt);
 
 	// Cycle through the circular frame resource array.
@@ -122,7 +140,10 @@ void Game::Draw(const GameTimer& gt)
 	auto passCB = mCurrFrameResource->PassCB->Resource();
 	mCommandList->SetGraphicsRootConstantBufferView(2, passCB->GetGPUVirtualAddress());
 
-	stateMachine->draw();
+	for (int i = 0; i < states.size(); i++)
+	{
+		states[i]->draw(gt);
+	}
 	DrawRenderItems(mCommandList.Get(), mOpaqueRitems);
 
 	// Indicate a state transition on the resource usage.
@@ -169,7 +190,21 @@ void Game::OnMouseMove(WPARAM btnState, int x, int y)
 
 void Game::OnKeyboardInput(const GameTimer& gt)
 {
+	for (int i = 0; i < states.size(); i++)
+	{
+		if (states[i]->mOrder == 0)
+		{
+			states[i]->getInputs(gt);
+			if (states[i] == titleState)
+			{
+				if (listeners.CheckListener(gotToMenu))
+				{
+					SetState(menuState);
+				}
+			}
 	
+		}
+	}
 }
 
 void Game::UpdateCamera(const GameTimer& gt)
@@ -663,13 +698,31 @@ void Game::BuildMaterials()
 
 }
 
+void Game::SetState(State* s)
+{
+	for (int i = 0; i < states.size(); i++)
+	{
+		if (states[i] == s)
+		{
+			states[i]->mOrder = 0;
+		}
+		else
+		{
+			states[i]->mOrder = 10;
+		}
+		std::cout << states[i]->mOrder << std::endl;
+	}
+}
+
 void Game::BuildRenderItems()
 {
-	stateMachine->load();
+	for (int i = 0; i < states.size(); i++)
+	{
+		states[i]->mOrder = i;
+		states[i]->load();
+	}
 
-	// All the render items are opaque.
-	for (auto& e : mAllRitems)
-		mOpaqueRitems.push_back(e.get());
+	for (auto& e : mAllRitems) mOpaqueRitems.push_back(e.get());
 }
 
 void Game::DrawRenderItems(ID3D12GraphicsCommandList* cmdList, const std::vector<RenderItem*>& ritems)

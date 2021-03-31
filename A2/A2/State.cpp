@@ -10,10 +10,9 @@ void State::getInputs(const GameTimer& gt)
 {
 }
 
-void State::draw()
+void State::draw(const GameTimer& gt)
 {
-	mSceneGraph->build();
-	mSceneGraph->draw();
+	
 }
 
 void State::load()

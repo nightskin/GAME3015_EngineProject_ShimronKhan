@@ -7,7 +7,7 @@ public:
 	TitleState(Game* window);
 	void update(const GameTimer& gt) override;
 	void getInputs(const GameTimer& gt) override;
-	void draw() override;
+	void draw(const GameTimer& gt) override;
 	void load() override;
 public:
 	SpriteNode* mBg;

@@ -4,12 +4,13 @@
 #include "SpriteNode.h"
 #include "StateList.h"
 
+
 class State
 {
 public:
 	virtual void update(const GameTimer& gt);
 	virtual void getInputs(const GameTimer& gt);
-	virtual void draw();
+	virtual void draw(const GameTimer& gt);
 	virtual void load();
 public:
 	States mStateType;
@@ -18,5 +19,4 @@ public:
 	ListenerManager	listenerManager;
 	Game* mGame;
 	float mOrder;
-	bool mActive;
 };

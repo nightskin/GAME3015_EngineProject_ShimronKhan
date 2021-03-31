@@ -14,4 +14,6 @@ private:
 private:
 	std::string			mSprite;
 	ListenerManager		listenerManager;
+	Listener aKey;
+	Listener dKey;
 };

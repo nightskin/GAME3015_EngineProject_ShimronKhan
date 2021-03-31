@@ -10,11 +10,12 @@ GameState::GameState(Game* window)
 	mEnemy1 = nullptr;
 	mEnemy2 = nullptr;
 	mStateType = States::GAME_STATE;
-	mActive = false;
+	mOrder = 3;
 }
 
 void GameState::update(const GameTimer& gt)
 {
+	mSceneGraph->setPosition(0,0, 2 * mOrder);
 	mSceneGraph->update(gt);
 	getInputs(gt);
 }
@@ -24,7 +25,7 @@ void GameState::getInputs(const GameTimer& gt)
 	mPlayer->input(gt);
 }
 
-void GameState::draw()
+void GameState::draw(const GameTimer& gt)
 {
 	mSceneGraph->draw();
 }
@@ -60,4 +61,7 @@ void GameState::load()
 	mBackground->setVelocity(0, -2);
 	mSceneGraph->attachChild(std::move(backgroundSprite));
 	mSceneGraph->build();
+
+
+
 }

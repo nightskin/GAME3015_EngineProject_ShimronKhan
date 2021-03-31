@@ -1,4 +1,5 @@
 #pragma once
+
 #include <vector>
 #include <string>
 
@@ -15,14 +16,12 @@ class ListenerManager
 public:
 	ListenerManager();
 	~ListenerManager();
-	bool CheckInput(char key);
-	bool CheckInput(int key);
 	bool CheckListener(Listener ev);
 	Listener PrevEvent();
 	Listener CurrentEvent();
 	void AddListener(Listener ev);
-	void RemoveListener(std::string evName);
 private:
 	std::vector<Listener> listeners;
 	std::vector<Listener> eventList;
+	Listener none;
 };

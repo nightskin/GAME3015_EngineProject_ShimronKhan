@@ -1,25 +1,26 @@
 #include "TitleState.h"
 
-TitleState::TitleState(Game* window) 
+TitleState::TitleState(Game* window)
 {
 	mGame = window;
 	mSceneGraph = new SceneNode(window, "Title State");
 	mBg = nullptr;
 	mStateType = States::TITLE_STATE;
-	mActive = false;
+	mOrder = 0;
 }
 
 void TitleState::update(const GameTimer& gt)
 {
+	mSceneGraph->setPosition(0, 0, 2 * mOrder);
 	mSceneGraph->update(gt);
 }
 
 void TitleState::getInputs(const GameTimer& gt)
 {
-	
+
 }
 
-void TitleState::draw()
+void TitleState::draw(const GameTimer& gt)
 {
 	mSceneGraph->draw();
 }
