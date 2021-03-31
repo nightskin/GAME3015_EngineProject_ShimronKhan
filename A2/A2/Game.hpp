@@ -1,8 +1,4 @@
-#include "TitleState.h"
-#include "MenuState.h"
-#include "GameState.h"
-#include "InstructionState.h"
-#include "StateList.h"
+#include "StateMachine.h"
 
 class Game : public D3DApp
 {
@@ -83,10 +79,7 @@ private:
 	POINT mLastMousePos;
 	Camera mCamera;
 	
-	GameState* gameState;
-	TitleState* titleState;
-	MenuState* menuState;
-	InstructionState* instructionState;
+	StateMachine* stateMachine;
 
 public:
 	std::vector<std::unique_ptr<RenderItem>>& getRenderItems() { return mAllRitems; }

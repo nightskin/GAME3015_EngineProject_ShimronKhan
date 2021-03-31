@@ -21,9 +21,6 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Unmodified Files</Filter>
     </ClCompile>
-    <ClCompile Include="FrameResource.cpp">
-      <Filter>Unmodified Files</Filter>
-    </ClCompile>
     <ClCompile Include="SceneNode.cpp">
       <Filter>Unmodified Files</Filter>
     </ClCompile>
@@ -81,12 +78,15 @@
     <ClCompile Include="State.cpp">
       <Filter>Added Files</Filter>
     </ClCompile>
+    <ClCompile Include="FrameResource.cpp">
+      <Filter>Never Touch Ever</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>Added Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.hpp">
-      <Filter>Unmodified Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FrameResource.h">
       <Filter>Unmodified Files</Filter>
     </ClInclude>
     <ClInclude Include="SceneNode.hpp">
@@ -150,6 +150,12 @@
       <Filter>Added Files</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
+      <Filter>Added Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameResource.h">
+      <Filter>Never Touch Ever</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
       <Filter>Added Files</Filter>
     </ClInclude>
   </ItemGroup>
