@@ -1,4 +1,15 @@
-﻿  Game.cpp
-C:\Users\angel\Desktop\School\Game Engine Dev 2\GAME3015_EngineProject_ShimronKhan\A2\A2\Game.cpp(38,24): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\angel\Desktop\School\Game Engine Dev 2\GAME3015_EngineProject_ShimronKhan\A2\A2\Game.cpp(721,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+﻿  Enemy.cpp
+C:\Users\angel\Desktop\School\Game Engine Dev 2\GAME3015_EngineProject_ShimronKhan\A2\A2\Enemy.cpp(20,54): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+  Game.cpp
+C:\Users\angel\Desktop\School\Game Engine Dev 2\GAME3015_EngineProject_ShimronKhan\A2\A2\Game.cpp(24,24): warning C4305: 'argument': truncation from 'double' to 'float'
+  main.cpp
+  Player.cpp
+C:\Users\angel\Desktop\School\Game Engine Dev 2\GAME3015_EngineProject_ShimronKhan\A2\A2\Player.cpp(44,54): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+  SceneNode.cpp
+  SpriteNode.cpp
+C:\Users\angel\Desktop\School\Game Engine Dev 2\GAME3015_EngineProject_ShimronKhan\A2\A2\SpriteNode.cpp(21,54): warning C4267: '=': conversion from 'size_t' to 'UINT', possible loss of data
+  Input.cpp
+  StateMachine.cpp
+C:\Users\angel\Desktop\School\Game Engine Dev 2\GAME3015_EngineProject_ShimronKhan\A2\A2\StateMachine.cpp(25,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
   A2.vcxproj -> C:\Users\angel\Desktop\School\Game Engine Dev 2\GAME3015_EngineProject_ShimronKhan\A2\x64\Debug\A2.exe

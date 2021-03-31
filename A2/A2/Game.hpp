@@ -1,9 +1,4 @@
-#include "TitleState.h"
-#include "MenuState.h"
-#include "GameState.h"
-#include "InstructionState.h"
-#include "StateList.h"
-#include <stack>
+#include "StateMachine.h"
 
 class Game : public D3DApp
 {
@@ -22,6 +17,8 @@ private:
 	virtual void OnMouseDown(WPARAM btnState, int x, int y)override;
 	virtual void OnMouseUp(WPARAM btnState, int x, int y)override;
 	virtual void OnMouseMove(WPARAM btnState, int x, int y)override;
+
+	StateMachine* stateManager;
 
 	void OnKeyboardInput(const GameTimer& gt);
 	void UpdateCamera(const GameTimer& gt);
@@ -43,7 +40,6 @@ private:
 	void BuildPSOs();
 	void BuildFrameResources();
 	void BuildMaterials();
-	void SetState(State* s);
 	void BuildRenderItems();
 	void DrawRenderItems(ID3D12GraphicsCommandList* cmdList, const std::vector<RenderItem*>& ritems);
 
@@ -85,15 +81,7 @@ private:
 	POINT mLastMousePos;
 	Camera mCamera;
 	
-	std::vector<State*> states;
-	GameState* gameState;
-	TitleState* titleState;
-	MenuState* menuState;
-	InstructionState* instructionState;
-
-
-	ListenerManager listeners;
-	Listener gotToMenu;
+	
 
 public:
 	std::vector<std::unique_ptr<RenderItem>>& getRenderItems() { return mAllRitems; }

@@ -81,6 +81,9 @@
     <ClCompile Include="FrameResource.cpp">
       <Filter>Never Touch Ever</Filter>
     </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>Added Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.hpp">
@@ -151,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="FrameResource.h">
       <Filter>Never Touch Ever</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>Added Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
