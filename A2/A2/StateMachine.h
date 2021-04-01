@@ -23,5 +23,6 @@ private:
 	InstructionState* instructionState;
 
 	ListenerManager listeners;
-	Listener gotToMenu;
+	Listener a;
+	Listener d;
 };

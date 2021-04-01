@@ -11,12 +11,21 @@ GameState::GameState(Game* window)
 	mEnemy2 = nullptr;
 	mStateType = States::GAME_STATE;
 	mOrder = 3;
+	paused = false;
 }
 
 void GameState::update(const GameTimer& gt)
 {
 	mSceneGraph->setPosition(0,0, 2 * mOrder);
-	mSceneGraph->update(gt);
+	if (paused)
+	{
+		mPause->setPosition(0, 0, -0.1f);
+	}
+	else
+	{
+		mPause->setPosition(0, 0, -50);
+		mSceneGraph->update(gt);
+	}
 	getInputs(gt);
 }
 
@@ -60,8 +69,14 @@ void GameState::load()
 	mBackground->setWorldRotation(90 * XM_PI / 180, 0, 0);
 	mBackground->setVelocity(0, -2);
 	mSceneGraph->attachChild(std::move(backgroundSprite));
+
+	std::unique_ptr<SpriteNode> pauseSprite(new SpriteNode(mGame, "Pause", "stop"));
+	mPause = pauseSprite.get();
+	mPause->setPosition(0, 0, -50);
+	mPause->setScale(15.0, 1.0, 15.0);
+	mPause->setWorldRotation(90 * XM_PI / 180, 0, 180 * XM_PI /180);
+	mPause->setVelocity(0, -2);
+	mSceneGraph->attachChild(std::move(pauseSprite));
+
 	mSceneGraph->build();
-
-
-
 }

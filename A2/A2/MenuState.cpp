@@ -1,4 +1,5 @@
 #include "MenuState.h"
+#include <iostream>
 
 MenuState::MenuState(Game* window)
 {
@@ -26,6 +27,7 @@ void MenuState::getInputs(const GameTimer& gt)
 		{
 			mArrow->setPosition(-2.0f, -0.75f, 0);
 			option = 0;
+
 		}
 	}
 	else if (listenerManager.CheckListener(down))
@@ -34,6 +36,7 @@ void MenuState::getInputs(const GameTimer& gt)
 		{
 			mArrow->setPosition(-3.0f, -2.75f, 0);
 			option = 1;
+			
 		}
 	}
 }

@@ -18,6 +18,18 @@ bool ListenerManager::CheckListener(Listener ev)
 		eventList.push_back(ev);
 		return true;
 	}
+	eventList.push_back(ev);
+	return false;
+}
+
+bool ListenerManager::CheckTrigger(Listener ev)
+{
+	if (GetAsyncKeyState(ev.bindChar) & WM_KEYUP || GetAsyncKeyState(ev.bindInt) & WM_KEYUP)
+	{
+		eventList.push_back(ev);
+		return true;
+	}
+	eventList.push_back(ev);
 	return false;
 }
 

@@ -11,12 +11,12 @@ public:
 	void load() override;
 public:
 	SceneNode* mSceneGraph;
+	int option;
 private:
 	Game* mGame;
 	ListenerManager	listenerManager;
 	SpriteNode* mBg;
 	SpriteNode* mArrow;
-	int option;
 	Listener up;
 	Listener down;
 };
