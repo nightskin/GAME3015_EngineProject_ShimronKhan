@@ -75,6 +75,7 @@ private:
 
 	// Render items divided by PSO.
 	std::vector<RenderItem*> mOpaqueRitems;
+	
 
 	PassConstants mMainPassCB;
 
